@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gg.voucher.entity.User;
-import com.gg.voucher.repo.UserRepository;
-
+import com.gg.voucher.model.ResponseDTO;
+import com.gg.voucher.service.UserSevice;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -19,12 +19,18 @@ public class UserController {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
-	private  UserRepository userRepository;
-	
+	private UserSevice sevice;
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public User addNewUsers(@RequestBody User user) {
+	public ResponseDTO addNewUsers(@RequestBody User user) {
 		log.info("Saving user.");
-		return userRepository.save(user);
+		return sevice.createUser(user);
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ResponseDTO login(@RequestBody User user) {
+		log.info("Saving user.");
+		return sevice.login(user);
 	}
 
 }

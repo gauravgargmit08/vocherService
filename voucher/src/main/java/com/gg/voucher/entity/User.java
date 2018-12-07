@@ -25,9 +25,6 @@ public class User {
 		return password;
 	}
 
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
 
 	public String getDob() {
 		return dob;
@@ -49,9 +46,7 @@ public class User {
 		this.password = password;
 	}
 
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
+	
 
 	public void setDob(String dob) {
 		this.dob = dob;
@@ -64,7 +59,6 @@ public class User {
 	private String email;
 	private String mobileNo;
 	private String password;
-	private String confirmPassword;
 	private String dob;
 	private Date creationDate = new Date();
 	private Date modifiedDate = new Date();

@@ -7,4 +7,6 @@ import com.gg.voucher.entity.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
+	public User findByEmail(String email);
+	public User findByEmailAndPassword(String email,String password);
 }
